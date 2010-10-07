@@ -8,8 +8,6 @@ var express = require('express')
 
 var argv            = require('optimist').argv
 
-puts('argv = ' + JSON.stringify(argv))
-
 var backendClass    = argv.backendClass     && JSON.parse(argv.backendClass)     || 'KiokuJS.Backend.Hash'
 var backendParams   = argv.backendParams    && JSON.parse(argv.backendParams)    || {}
 var baseURL         = argv.baseURL          && JSON.parse(argv.baseURL)          || '/'
@@ -33,7 +31,6 @@ use([
     
     
     puts('Starting KiokuJS.Backend.Batch.Server')
-    puts('Backend configuration parameters: [' + backendParams + ']')
     
     var server = new KiokuJS.Backend.Batch.Server({
         backendClass        : eval('(' + backendClass + ')'),
@@ -59,4 +56,5 @@ use([
 
 process.on('uncaughtException', function (err) {
     console.log('exception: ' + err)
+    console.log('stack: ' + err.stack)
 })
