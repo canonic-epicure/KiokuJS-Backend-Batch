@@ -27,6 +27,7 @@ Harness.configure({
 
 Harness.start(
     '010_sanity.t.js',
-    '020_fixtures_hash.t.js'
+    '020_fixtures_hash.t.js',
+    '030_fixtures_couchdb.t.js'
 )
 

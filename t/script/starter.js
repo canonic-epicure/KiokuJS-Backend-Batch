@@ -30,7 +30,7 @@ app.put('/start_test', function (req, res) {
     
     Joose.O.each(params, function (value, name) {
         
-        paramsAsArr.push('--' + name + '=' + value)
+        paramsAsArr.push('--' + name + '=' + JSON.stringify(value))
     })
     
     var child = tests[ port ] = spawn('node', [ 'script/kioku_batch_server.js' ].concat(paramsAsArr))

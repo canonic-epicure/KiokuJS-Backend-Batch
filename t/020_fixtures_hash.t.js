@@ -12,7 +12,6 @@ StartTest(function(t) {
     
     t.harness.currentPort   = t.harness.currentPort || 9000
     
-    
     new KiokuJS.Test({
         t       : t,
         
@@ -41,7 +40,7 @@ StartTest(function(t) {
                 var backend = new KiokuJS.Backend.Hash({
                     trait   : KiokuJS.Backend.Batch,
                     
-                    baseURL : 'http://local/' + port
+                    baseURL : '/' + port
                 })
                 
                 backend.__port__ = port

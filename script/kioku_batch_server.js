@@ -8,10 +8,12 @@ var express = require('express')
 
 var argv            = require('optimist').argv
 
-var backendClass    = argv.backend          || 'KiokuJS.Backend.Hash'
-var backendParams   = argv.backendParams    || '{}'
-var baseURL         = argv.baseURL          || '/'
-var port            = Number(argv.port)     || 8080
+puts('argv = ' + JSON.stringify(argv))
+
+var backendClass    = argv.backendClass     && JSON.parse(argv.backendClass)     || 'KiokuJS.Backend.Hash'
+var backendParams   = argv.backendParams    && JSON.parse(argv.backendParams)    || {}
+var baseURL         = argv.baseURL          && JSON.parse(argv.baseURL)          || '/'
+var port            = Number(argv.port)                                          || 8080
 
 
 require('Task/Joose/NodeJS')
@@ -30,12 +32,13 @@ use([
     })
     
     
-    var params = eval('(' + backendParams + ')')
+    puts('Starting KiokuJS.Backend.Batch.Server')
+    puts('Backend configuration parameters: [' + backendParams + ']')
     
     var server = new KiokuJS.Backend.Batch.Server({
         backendClass        : eval('(' + backendClass + ')'),
         
-        backendParams       : params,
+        backendParams       : backendParams,
         
         baseURL             : baseURL.replace(/\/$/, ''),
         port                : port,
@@ -48,7 +51,7 @@ use([
     
     puts('KiokuJS.Backend.Batch.Server server started')
     puts('Backend class: : [' + backendClass + ']')
-    puts('Backend configuration parameters: [' + JSON.stringify(params) + ']')
+    puts('Backend configuration parameters: [' + JSON.stringify(backendParams) + ']')
     puts('BaseURL: [' + baseURL + ']')
     puts('Port: [' + port + ']')
 })

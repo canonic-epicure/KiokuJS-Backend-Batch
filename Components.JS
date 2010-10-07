@@ -14,6 +14,7 @@ COMPONENTS = {
     
     "Test" : [
         "jsan:Task.KiokuJS.Test",
+        "jsan:Task.KiokuJS.Backend.CouchDB.Core",
         "+Core"
     ]
 }
