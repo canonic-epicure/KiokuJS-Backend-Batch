@@ -2,34 +2,24 @@ require.paths.unshift('./lib')
 
 
 var http    = require('http')
-var faye    = faye = require('faye')
 var sys     = require('sys')
 var puts    = sys.puts
 var express = require('express')
 
 var argv            = require('optimist').argv
-var argvArr         = argv._
+
+var backendClass    = argv.backend          || 'KiokuJS.Backend.Hash'
+var backendParams   = argv.backendParams    || '{}'
+var baseURL         = argv.baseURL          || '/'
+var port            = Number(argv.port)     || 8080
 
 
-
-var backendClass    = argv.backend || 'KiokuJS.Backend.CouchDB'
-var backendParams   = argv.backendParams || '{}'
-
-var fayeURL         = argv.fayeURL || '/faye'
-var baseURL         = argv.baseURL || '/syncler'
-
-var port            = Number(argv.port) || 8080
-
-
-require('Task/Syncler/Prereq')
+require('Task/KiokuJS/Prereq')
 require('Task/KiokuJS/Core')
-require('Task/Syncler/Core')
 
 use([
 
-    'KiokuJS', // XXX need to include 'KiokuJS' for Joose.O.each override (move to Data.Visitor?)
-    
-    'Syncler.Server',
+    'KiokuJS.Backend.Batch.Server',
     backendClass
 
 ], function () {
@@ -39,13 +29,6 @@ use([
     app.configure(function () {
         app.use( express.bodyDecoder() )
     })
-    
-    
-    var bayeux = new faye.NodeAdapter({
-        mount       : fayeURL,
-        timeout     : 45
-    })
-    
     
     
     var params = eval('(' + backendParams + ')')
@@ -58,16 +41,11 @@ use([
         baseURL             : baseURL.replace(/\/$/, ''),
         port                : port,
         
-        fayeClient          : bayeux.getClient(),
-        
         app                 : app
     })
 
     
-    bayeux.attach(app)
-    
     app.listen(port)
-    
     
     puts('Syncler server started')
 })
