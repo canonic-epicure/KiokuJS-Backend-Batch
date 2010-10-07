@@ -7,8 +7,8 @@ StartTest(function(t) {
     
     t.ok(KiokuJS.Test, "KiokuJS.Test is here")
     
-    var portCounter     = t.harness.currentPort = t.harness.currentPort || 9000
-    var request         = HTTP.Request.Provider.getRequest
+    t.harness.currentPort   = t.harness.currentPort || 9000
+    
     
     new KiokuJS.Test({
         t       : t,
@@ -20,7 +20,7 @@ StartTest(function(t) {
             var dbURL   = 'http://local/5984/kiokujs-backend-couchdb-' + new Date().getTime()
             var port    = t.harness.currentPort++
             
-            request({ 
+            HTTP.Request.Provider.getRequest({ 
                 
                 headers : { 'content-type' : 'application/json' },
                 
@@ -46,7 +46,7 @@ StartTest(function(t) {
         
         cleanup : function (handle, t) {
             
-            request({ 
+            HTTP.Request.Provider.getRequest({ 
                 
                 headers : { 'content-type' : 'application/json' },
                 

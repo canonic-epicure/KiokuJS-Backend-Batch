@@ -6,8 +6,14 @@ COMPONENTS = {
     ],
     
     
-    "Bundle" : [
-        "jsan:Task.Joose.Core",
+    "Prereq" : [
+        "jsan:Task.KiokuJS.Prereq",
+        "jsan:Task.HTTP.Request.Provider.Auto"
+    ],
+    
+    
+    "Test" : [
+        "jsan:Task.KiokuJS.Test",
         "+Core"
     ]
 }

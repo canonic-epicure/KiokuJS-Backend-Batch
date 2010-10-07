@@ -32,7 +32,7 @@ use([
     
     var params = eval('(' + backendParams + ')')
     
-    var server = new Syncler.Server({
+    var server = new KiokuJS.Backend.Batch.Server({
         backendClass        : eval('(' + backendClass + ')'),
         
         backendParams       : params,
@@ -48,7 +48,7 @@ use([
     
     puts('KiokuJS.Backend.Batch.Server server started')
     puts('Backend class: : [' + backendClass + ']')
-    puts('Backend configuration parameters: [' + params + ']')
+    puts('Backend configuration parameters: [' + JSON.stringify(params) + ']')
     puts('BaseURL: [' + baseURL + ']')
     puts('Port: [' + port + ']')
 })

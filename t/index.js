@@ -16,16 +16,17 @@ Harness.configure({
     title     : 'KiokuJS.Backend.Batch Test Suite',
     
     preload : [
-        "jsan:Task.Joose.Core",
-        "jsan:Task.JooseX.Namespace.Depended.Auto",
+        'Task.KiokuJS.Backend.Batch.Prereq',
         {
             text : "JooseX.Namespace.Depended.Manager.my.INC = " + Harness.prepareINC(INC)
-        }
+        },
+        'Task.KiokuJS.Backend.Batch.Test'
     ]
 })
 
 
 Harness.start(
-    '010_sanity.t.js'
+    '010_sanity.t.js',
+    '020_fixtures_hash.t.js'
 )
 
