@@ -33,6 +33,8 @@ StartTest(function(t) {
                 data    : JSON2.stringify({ 
                     port            : port,
                     
+//                    deepPrefetch    : true,
+                    
                     backendClass    : 'KiokuJS.Backend.CouchDB',
                     backendParams   : {
                         dbURL   : dbURL

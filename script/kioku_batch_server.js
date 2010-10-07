@@ -12,6 +12,7 @@ var backendClass    = argv.backendClass     && JSON.parse(argv.backendClass)    
 var backendParams   = argv.backendParams    && JSON.parse(argv.backendParams)    || {}
 var baseURL         = argv.baseURL          && JSON.parse(argv.baseURL)          || '/'
 var port            = Number(argv.port)                                          || 8080
+var deepPrefetch    = argv.deepPrefetch                                          || false
 
 
 require('Task/Joose/NodeJS')
@@ -40,7 +41,9 @@ use([
         baseURL             : baseURL.replace(/\/$/, ''),
         port                : port,
         
-        app                 : app
+        app                 : app,
+        
+        deepPrefetch        : deepPrefetch
     })
 
     
