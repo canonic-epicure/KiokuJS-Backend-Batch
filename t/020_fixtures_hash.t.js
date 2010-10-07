@@ -17,6 +17,7 @@ StartTest(function(t) {
         t       : t,
         
 //        fixtures    : [ 'StressLoad.Tree' ],
+//        fixtures    : [ 'Remove' ],
         
         connect : function () {
             
