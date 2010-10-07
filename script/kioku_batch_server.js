@@ -14,8 +14,7 @@ var baseURL         = argv.baseURL          || '/'
 var port            = Number(argv.port)     || 8080
 
 
-require('Task/KiokuJS/Prereq')
-require('Task/KiokuJS/Core')
+require('Task/Joose/NodeJS')
 
 use([
 
@@ -47,7 +46,11 @@ use([
     
     app.listen(port)
     
-    puts('Syncler server started')
+    puts('KiokuJS.Backend.Batch.Server server started')
+    puts('Backend class: : [' + backendClass + ']')
+    puts('Backend configuration parameters: [' + params + ']')
+    puts('BaseURL: [' + baseURL + ']')
+    puts('Port: [' + port + ']')
 })
 
 

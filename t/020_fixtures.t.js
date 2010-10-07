@@ -6,12 +6,9 @@ StartTest(function(t) {
     t.diag('Sanity')
     
     t.ok(KiokuJS.Test, "KiokuJS.Test is here")
-    t.ok(KiokuJS.Backend.CouchDB, "KiokuJS.Backend.CouchDB is here")
-    t.ok(Syncler, "Syncler is here")
     
-
     var portCounter     = t.harness.currentPort = t.harness.currentPort || 9000
-    var request         = HTTP.Request.Provider.request
+    var request         = HTTP.Request.Provider.getRequest
     
     new KiokuJS.Test({
         t       : t,
