@@ -40,7 +40,7 @@ StartTest(function(t) {
                 var backend = new KiokuJS.Backend.Hash({
                     trait   : KiokuJS.Backend.Batch,
                     
-                    baseURL : '/'
+                    baseURL : 'http://local/' + port
                 })
                 
                 backend.__port__ = port
