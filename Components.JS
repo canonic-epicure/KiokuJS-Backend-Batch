@@ -18,4 +18,3 @@ COMPONENTS = {
         "+Core"
     ]
 }
-
