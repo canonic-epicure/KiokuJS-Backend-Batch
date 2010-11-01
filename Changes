@@ -2,6 +2,8 @@ Release history for KiokuJS.Backend.Batch
 
 {{$NEXT}}
 
+0.02      2010-11-01 16:43
+
         - first release for `npm`
 
 0.01      2010-10-11 16:29
