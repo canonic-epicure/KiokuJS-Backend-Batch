@@ -19,7 +19,7 @@ require('Task/Joose/NodeJS')
 
 use([
 
-    'KiokuJS.Backend.Batch.Server',
+    'KiokuJS.Backend.Batch.ServerApp',
     backendClass
 
 ], function () {
@@ -31,9 +31,9 @@ use([
     })
     
     
-    puts('Starting KiokuJS.Backend.Batch.Server')
+    puts('Starting KiokuJS.Backend.Batch.ServerApp')
     
-    var server = new KiokuJS.Backend.Batch.Server({
+    var server = new KiokuJS.Backend.Batch.ServerApp({
         backendClass        : eval('(' + backendClass + ')'),
         
         backendParams       : backendParams,
@@ -49,7 +49,7 @@ use([
     
     app.listen(port)
     
-    puts('KiokuJS.Backend.Batch.Server server started')
+    puts('KiokuJS.Backend.Batch.ServerApp server started')
     puts('Backend class: : [' + backendClass + ']')
     puts('Backend configuration parameters: [' + JSON.stringify(backendParams) + ']')
     puts('BaseURL: [' + baseURL + ']')
