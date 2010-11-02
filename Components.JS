@@ -2,6 +2,7 @@ COMPONENTS = {
     // a comment
     
     "Core" : [
+        "KiokuJS.Backend.Role.HTTP",    
         "KiokuJS.Backend.Batch"
     ],
     
