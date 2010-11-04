@@ -37,7 +37,7 @@ StartTest(function(t) {
                     backendClass    : 'KiokuJS.Backend.Hash'
                 })
                 
-            }).andThen(function (res) {
+            }).andThen(function () {
                 
                 var backend = new KiokuJS.Backend.Hash({
                     trait   : KiokuJS.Backend.Batch,

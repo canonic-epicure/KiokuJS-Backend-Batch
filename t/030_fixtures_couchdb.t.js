@@ -41,7 +41,7 @@ StartTest(function(t) {
                     }
                 })
                 
-            }).andThen(function (res) {
+            }).andThen(function () {
                 
                 var backend = new KiokuJS.Backend.CouchDB({
                     trait       : KiokuJS.Backend.Batch,
