@@ -2,8 +2,8 @@ require.paths.unshift('./lib')
 
 
 var http    = require('http')
-var sys     = require('sys')
-var puts    = sys.puts
+var util = require('util')
+var puts    = util.puts
 var express = require('express')
 
 var argv            = require('optimist').argv
